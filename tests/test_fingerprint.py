@@ -1,8 +1,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-import barch.fingerprint
-import barch.fingerprint
+import barch.commands.fingerprint
+import barch.commands.fingerprint
 
 TESTING = (Path(__file__).parent / '..' / 'testing').resolve()
 
@@ -15,7 +15,7 @@ TESTING = (Path(__file__).parent / '..' / 'testing').resolve()
 class TestFingerprint(TestCase):
     def test_fingerprint(self):
         assert (
-                barch.fingerprint.fingerprint(
+                barch.commands.fingerprint.fingerprint(
                     TESTING / 'fingerprint.txt'
                 ) == '20af7fdfb0586595'
         )
