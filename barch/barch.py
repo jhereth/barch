@@ -6,7 +6,8 @@ import click
 @click.group()
 def cli():
     """barch - Utility to support Backup and Archiving."""
-    click.echo('cli')
+    # click.echo('cli')
+    pass
 
 
 @cli.command()

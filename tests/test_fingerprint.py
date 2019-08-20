@@ -19,3 +19,11 @@ class TestFingerprint(TestCase):
                     TESTING / 'fingerprint.txt'
                 ) == '20af7fdfb0586595'
         )
+
+class TestFilteType(TestCase):
+    def test_std_file(self):
+        assert (
+                barch.commands.fingerprint.fingerprint(
+                    TESTING / 'fingerprint.txt'
+                ) == '20af7fdfb0586595'
+        )
