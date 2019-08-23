@@ -15,7 +15,9 @@ def cli():
 def fingerprint(file: str):
     """fingerprint of files."""
     fp = _fingerprint(Path(file))
-    click.echo(f'fingerprint of {file} is {fp}.')
+    for f in fp:
+        # click.echo(f.jsonify())
+        click.echo(f.xxh_format())
 
 
 cli.add_command(fingerprint)
