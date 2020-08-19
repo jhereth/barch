@@ -1,5 +1,6 @@
+import json
 from pathlib import Path
-from commands.fingerprint import fingerprint as _fingerprint
+from barch.commands.fingerprint import fingerprint as _fingerprint
 import click
 
 
@@ -15,9 +16,22 @@ def cli():
 def fingerprint(file: str):
     """fingerprint of files."""
     fp = _fingerprint(Path(file))
-    for f in fp:
-        # click.echo(f.jsonify())
-        click.echo(f.xxh_format())
+    click.echo(fp.xxh_format())
+
+
+@cli.command()
+@click.argument("file")
+def metadata(file: str):
+    """collect metadata of file
+
+    - size in bytes
+    - access time
+    - last modification time
+    - creation time
+    - filemode
+    """
+    md = _metadata(Path(file))
+    click.echo(json.dumps(md))
 
 
 cli.add_command(fingerprint)

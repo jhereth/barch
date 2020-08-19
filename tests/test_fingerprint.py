@@ -30,9 +30,9 @@ class TestFingerprint(TestCase):
         # TODO(#10): Simplify Fingerprint Generation for single file
         s = fp.fingerprint(
             TESTING / file_name
-        )[0].xxh_format()
+        ).xxh_format()
         assert all(c in string.hexdigits for c in s[:16])
-        assert s[16:18] == '  '
+        assert s[32:34] == '  '
 
 
 class TestFingerprint_fingerprint(TestCase):
@@ -41,9 +41,7 @@ class TestFingerprint_fingerprint(TestCase):
         result = fp.fingerprint(
             TESTING / file_name
         )
-        with self.subTest(msg="only one result"):
-            assert len(result) == 1
         with self.subTest(msg="correct filename"):
-            assert result[0].filename == file_name
+            assert result.filename == file_name
         with self.subTest(msg="correct digest"):
-            assert result[0].digest == '20af7fdfb0586595'
+            assert result.digest == '86d37599cd7d43276456aa22aad48cee'
