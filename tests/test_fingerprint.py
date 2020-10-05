@@ -14,18 +14,8 @@ SAMPLE_FINGERPRINT = fp.Fingerprint(
 
 
 class TestFingerprint(TestCase):
-    def test_jsonify(self):
-        d = json.loads(SAMPLE_FINGERPRINT.jsonify())
-        for k in fp.Fingerprint.__dataclass_fields__.keys():
-            with self.subTest(msg='contains key', key=k):
-                ref = SAMPLE_FINGERPRINT.__getattribute__(k)
-                if type(ref) in [str, int]:
-                    assert d[k] == ref
-                else:
-                    assert d[k] == str(ref)
-
     def test_xxh_format(self):
-        """Match [xxhsum spec for 64bit](https://github.com/Cyan4973/xxHash/blob/e22268617bb287e5b407b3c6cc29c1963c8d7c2d/xxhsum.c#L1219-L1231)."""
+        """Match [xxhsum spec for 64bit](https://github.com/Cyan4973/xxHash/blob/v0.8.0/xxhsum.c#L1847-L1865)."""
         file_name = 'fingerprint.txt'
         # TODO(#10): Simplify Fingerprint Generation for single file
         s = fp.fingerprint(

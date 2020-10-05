@@ -13,17 +13,8 @@ class Fingerprint:
     path: Path
     digest: str
 
-    def jsonify(self) -> str:
-        return ('{' +
-                f'"filename": "{self.filename}", ' +
-                f'"path": "{self.path}", ' +
-                f'"digest": "{str(self.digest)}"' +
-                '}')
-
     def xxh_format(self) -> str:
         return f'{self.digest}  {self.path}/{self.filename}'
-
-
 
 
 def fingerprint(file_name: Path) -> Fingerprint:
