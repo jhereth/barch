@@ -41,8 +41,8 @@ class TestFingerprint:
         check.equal(s[32:34], '  ')
 
     def test_fingerprint__works_recursively(self, recursive_data):
-        dir = recursive_data("testing1")
-        s = fp.fingerprint(dir)
+        directory = recursive_data("testing1")
+        s = fp.fingerprint(directory)
         print(s)
         # assert False
 

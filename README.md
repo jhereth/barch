@@ -11,6 +11,9 @@ bash-3.2$ python barch/barch.py fingerprint testing/fingerprint.txt
 fingerprint of testing/fingerprint.txt is 20af7fdfb0586595.
 ```
 
+
+
+
 ### Testing
 
 Start `pytest` within a shell.
